@@ -112,7 +112,7 @@ function App() {
   function handleSubmission(e) {
     e.preventDefault();
     setSearched(true);
-    fetch(`http://www.omdbapi.com/?apikey=2c6e7a77&s=${data}`)
+    fetch(`https://www.omdbapi.com/?apikey=2c6e7a77&s=${data}`)
       .then((res) => res.json())
       .then((resj) => {
         console.log(resj.Response);
