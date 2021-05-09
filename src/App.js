@@ -146,7 +146,7 @@ function App() {
       <div className="text-center container mt-4">
         <img
           src="https://storage.googleapis.com/incind/Wavy_Ppl-05_Single-123gkLak8.jpg"
-          width="500"
+          style={{ maxWidth: "100%", width: "500px" }}
           alt="..."
         />
         <form onSubmit={handleSubmission}>
