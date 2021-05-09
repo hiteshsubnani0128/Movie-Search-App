@@ -11,3 +11,25 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.my-bg-div {
+  background: url("https://storage.googleapis.com/incind/hand-painted-watercolor-background-with-sky-clouds-shapeT3UBbpd.jpg")
+    no-repeat center center fixed;
+  margin: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh !important;
+}
+
+footer {
+  left: 45%;
+  position: absolute;
+  bottom: 1%;
+  height: 100px;
+}
+
+.over-div {
+  height: 100%;
+}

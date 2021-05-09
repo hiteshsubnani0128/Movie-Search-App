@@ -2,13 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import ReactPlaceholder from "react-placeholder";
 import "react-placeholder/lib/reactPlaceholder.css";
-import {
-  TextBlock,
-  MediaBlock,
-  TextRow,
-  RectShape,
-  RoundShape,
-} from "react-placeholder/lib/placeholders";
+import { TextRow, RectShape } from "react-placeholder/lib/placeholders";
 
 function PlaceHolder() {
   return (
@@ -21,6 +15,14 @@ function PlaceHolder() {
         <TextRow color="#E0E0E0" />
       </div>
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <hr />© 2021
+    </footer>
   );
 }
 
@@ -71,8 +73,13 @@ function MovieInfo(props) {
 
 function MainComponent(props) {
   return (
-    <div className="container mt-3">
-      <h4 className="display-4">Results for {props.searchedFor}</h4>
+    <div className="container">
+      <div className="pt-5">
+        <h4 className="display-4">
+          Results for
+          <span className="text-capitalize">{props.searchedFor}</span>
+        </h4>
+      </div>
       <button className="btn btn-link" onClick={props.selectAnother()}>
         Search Another
       </button>
@@ -133,42 +140,64 @@ function App() {
 
   if (searched) {
     return (
-      <MainComponent
-        movies={movies}
-        searchedFor={data}
-        selectAnother={() => selectAnother}
-      />
+      <div className="my-bg-div">
+        <MainComponent
+          movies={movies}
+          searchedFor={data}
+          selectAnother={() => selectAnother}
+        />
+        {/* <Footer /> */}
+      </div>
     );
-    // } else if (searched == "searching") {
+    // } else if (searched == "searching") let [isDarkMode, setIsDarkMode] = useState(false);{
     //   return <p>Searching...</p>;
   } else {
     return (
-      <div className="text-center container mt-4">
-        <img
-          src="https://storage.googleapis.com/incind/Wavy_Ppl-05_Single-123gkLak8.jpg"
-          style={{ maxWidth: "100%", width: "500px" }}
-          alt="..."
-        />
-        <form onSubmit={handleSubmission}>
-          <div>
-            <h6 className="display-4">Search Movies for Free</h6>
-            <input
-              type="search"
-              className="form-control my-3"
-              placeholder="Enter Movie name"
-              value={data}
-              onChange={handleDataChange}
-            />
-            {check ? (
-              <p className="alert alert-danger my-3">
-                No Movie available with this name
-              </p>
-            ) : (
-              ""
-            )}
-            <button className="btn btn-primary w-50">Search Movie</button>
+      <div className="my-bg-div p-5">
+        <div className=" container mt-4 main-div">
+          <header class="pb-3 mb-4 border-bottom">
+            <a
+              href="/"
+              class="d-flex align-items-center text-dark text-decoration-none"
+            >
+              <span class="fs-4">Search Movies for Free</span>
+            </a>
+          </header>
+          {/* <img
+            src="https://storage.googleapis.com/incind/Wavy_Ppl-05_Single-123gkLak8.jpg"
+            style={{ maxWidth: "100%", width: "500px" }}
+            alt="..."
+          /> */}
+          <div class="p-md-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <form onSubmit={handleSubmission}>
+                <div>
+                  <div className="d-inline float-left">
+                    <h6 className="display-4 d-inline">Movie Name:- </h6>
+                  </div>
+                  <input
+                    type="search"
+                    className="form-control my-3"
+                    placeholder="Enter Movie name"
+                    value={data}
+                    onChange={handleDataChange}
+                  />
+                  {check ? (
+                    <p className="alert alert-danger my-3">
+                      No Movie available with this name
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                  <button className="btn btn-primary w-md-50">
+                    Search Movie
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
+        <Footer />
       </div>
     );
   }
